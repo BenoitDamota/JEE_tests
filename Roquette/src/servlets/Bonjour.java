@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.forms.BonjourForm;
+import models.beans.User;
+
 /**
  * Servlet implementation class Bonjour
  */
@@ -34,15 +37,14 @@ public class Bonjour extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nom = request.getParameter("nom"); 
-		if (( nom != null ) && ( nom.length() >= 3 )) {
-			request.getSession().setAttribute("nom_session", nom);
+		BonjourForm bf = new BonjourForm();
+		User nom = bf.verifierNom(request);
+		if (bf.getErreurs().isEmpty()) {
+			request.getSession().setAttribute("user_session", nom);
 			request.getRequestDispatcher( "/WEB-INF/bonjourOk.jsp")
 				.forward( request, response );
 		} else {
-			request.setAttribute
-				("erreur", 
-				new String("Nom invalide (longueur < 3)"));
+			request.setAttribute("erreurs", bf.getErreurs());
 			this.doGet(request, response);
 		}
 		

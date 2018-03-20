@@ -22,6 +22,6 @@
 
 <c:out value="${ idc }" /><br />
 Vous êtes identifié en tant que : 
-<c:out value="${ nom_session }" />
+<c:out value="${ user_session.nom }" />
 </body>
 </html>

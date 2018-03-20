@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-Bonjour ${ nom_session } !
+Bonjour ${ user_session.nom } !
 <br />
 <a href="user">next...</a>
 </body>

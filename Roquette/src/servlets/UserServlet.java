@@ -6,9 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.*;
 
-import models.User;
+import models.beans.User;
+
+import java.util.*;
 
 /**
  * Servlet implementation class UserServlet

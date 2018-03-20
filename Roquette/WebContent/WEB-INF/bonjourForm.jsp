@@ -16,7 +16,6 @@
    <br />
 </fieldset>
 </form>
-<p> ${ erreur } </p>
-<p> coucou </p>
+<p> ${ erreurs.nom } </p>
 </body>
 </html>
